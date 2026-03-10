@@ -47,9 +47,15 @@ Both `deploy.sh` and `simple_deploy.sh` are configured to use **Google Secret Ma
 
 For details on how to set these up in Okta and then in Google Secret Manager, refer to the explanation on [why Okta RS Client credentials are needed](#why-okta-rs-client-credentials-are-needed) (note: this is a conceptual link to a previous message, not a markdown anchor).
 
+When you have these values ready, you can save them in a local file named `.env` in the `3_deploy_agent` directory and run `./upload_secrets.sh` to upload them to Google Secret Manager. 
+
+
 ### 2. Agent Metadata
 
 The `remote_a2a/remote_time_agent/.well-known/agent.json` file defines the agent's capabilities. The `deploy.sh` script automatically updates the `url` and `target_url` fields in this file to match your deployed Cloud Run instance.
+
+In `agent.json`, the values of `"authorizationUrl"`, `"tokenUrl"`, `"refreshUrl"` should be set to the same as per `2_oauth/remote_a2a/remote_time_agent/.well-known/agent.json`.
+
 
 ## Deployment
 
@@ -64,6 +70,14 @@ Use `deploy.sh` for the initial deployment. This script performs a "two-step" de
 **Usage:**
 
 ```bash
+### obtain default service account name for Cloud Run Service
+gcloud iam service-accounts list --filter="email ~ '-compute@developer.gserviceaccount.com'"
+### grant secret manager secret access to the service account
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) \
+  --member="insert your comput default service account email here" \
+  --role="roles/secretmanager.secretAccessor"
+
+### deploy
 ./deploy.sh
 ```
 
