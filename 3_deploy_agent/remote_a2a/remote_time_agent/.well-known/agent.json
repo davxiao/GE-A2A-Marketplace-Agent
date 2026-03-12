@@ -49,9 +49,9 @@
       "type": "oauth2",
       "flows": {
         "authorizationCode": {
-          "authorizationUrl": "https://integrator-1371395.okta.com/oauth2/default/v1/authorize",
-          "tokenUrl": "https://integrator-1371395.okta.com/oauth2/default/v1/token",
-          "refreshUrl": "https://integrator-1371395.okta.com/oauth2/default/v1/token",
+          "authorizationUrl": "https://integrator-4489750.okta.com/oauth2/default/v1/authorize",
+          "tokenUrl": "https://integrator-4489750.okta.com/oauth2/default/v1/token",
+          "refreshUrl": "https://integrator-4489750.okta.com/oauth2/default/v1/token",
           "scopes": {
             "agent:time": "Get the current time from the agent.",
             "openid": "Basic user profile.",

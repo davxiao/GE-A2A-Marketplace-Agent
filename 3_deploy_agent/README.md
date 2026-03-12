@@ -47,7 +47,7 @@ Both `deploy.sh` and `simple_deploy.sh` are configured to use **Google Secret Ma
 
 For details on how to set these up in Okta and then in Google Secret Manager, refer to the explanation on [why Okta RS Client credentials are needed](#why-okta-rs-client-credentials-are-needed) (note: this is a conceptual link to a previous message, not a markdown anchor).
 
-When you have these values ready, you can save them in a local file named `.env` in the `3_deploy_agent` directory and run `./upload_secrets.sh` to upload them to Google Secret Manager. 
+When you have these values ready, you can save them in a local file named `.env` in the `3_deploy_agent` directory and run `./upload_secrets.sh` to upload them to Google Secret Manager. If you ran into permission errors with the script, run `gcloud auth login` and try again.
 
 
 ### 2. Agent Metadata
