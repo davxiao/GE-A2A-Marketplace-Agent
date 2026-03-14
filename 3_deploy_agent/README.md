@@ -140,3 +140,12 @@ After deployment, you can verify the service is running:
     curl https://<YOUR-SERVICE-URL>/
     ```
     Should return `{"message": "Remote Time Agent A2A Server is running with OAuth"}`.
+
+3.  **Test client agent with remote A2A agent**:
+    Copy `.env` from `3_deploy_agent/remote_a2a/remote_time_agent/` to `3_deploy_agent/test_client_agent/`.
+
+    Edit `3_deploy_agent/test_client_agent/agent.py` to replace `agent_card_base_url` with your deployed Cloud Run service URL from the `"url"` field of the agent card JSON in `3_deploy_agent/remote_a2a/remote_time_agent/.well-known/agent.json`.
+
+    Run `uv sync` to update dependencies.
+
+    Run `uv run ./agent.py` to start the test client agent. You should be redirected to Okta for authentication first. After authentication, the agent should enter the interactive chat with the remote A2A agent. You can then ask it for the current time in a specified city.
