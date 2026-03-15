@@ -14,15 +14,7 @@
   },
   "capabilities": {
     "streaming": false,
-    "pushNotifications": false,
-    "extensions": [
-      {
-        "uri": "https://cloud.google.com/marketplace/docs/partners/ai-agents/setup-dcr",
-        "params": {
-          "target_url": "remote-time-agent-m74hb36eya-uc.a.run.app/dcr"
-        }
-      }
-    ]
+    "pushNotifications": false
   },
   "skills": [
     {
