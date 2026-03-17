@@ -26,7 +26,6 @@ from google.adk.agents.run_config import RunConfig
 # Load environment variables from .env file
 load_dotenv()
 
-
 async def get_agent_card(httpx_client: httpx.AsyncClient,
                          agent_card_url: str) -> dict:
     """Fetches and parses the agent card JSON from the given URL."""

@@ -15,7 +15,7 @@ if [ ! -f .env ]; then
   echo "Error: .env file not found in current directory."
   exit 1
 fi
-   
+
 # Read .env file line by line
 # IFS='=' splits the line into key and value
 while IFS='=' read -r key value || [ -n "$key" ]; do

@@ -15,15 +15,21 @@ The agent is built using:
 
 ```
 .
-├── deploy.sh               # Main deployment script (handles URL generation & agent.json updates, uses Secret Manager)
-├── simple_deploy.sh        # Simplified deployment script (uses Secret Manager, good for CI/CD)
-└── remote_a2a/             # Application source
-    ├── Dockerfile          # Container definition
-    ├── requirements.txt    # Python dependencies
-    └── remote_time_agent/  # Agent code
-        ├── agent.py        # Main application logic
-        └── .well-known/    # Discovery metadata
-            └── agent.json  # Agent Card served by the application
+├── 3_deploy_agent/
+    ├── deploy.sh               # Main deployment script (handles URL generation & agent.json updates, uses Secret Manager)
+    ├── simple_deploy.sh        # Simplified deployment script (uses Secret Manager, good for CI/CD)
+    └── remote_a2a/             # Application source
+        ├── Dockerfile          # Container definition
+        ├── requirements.txt    # Python dependencies
+        └── remote_time_agent/  # Agent code
+            ├── agent.py        # Main application logic
+            └── .well-known/    # Discovery metadata
+                └── agent.json  # Agent Card served by the application
+    └── test_client_agent/      # client agent
+        ├── agent.py            # core agent logic
+        ├── .env                # environment variables
+        └── pyproject.toml      # Python dependencies for uv
+
 ```
 
 ## Prerequisites
